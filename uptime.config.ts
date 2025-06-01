@@ -36,6 +36,8 @@ const workerConfig: WorkerConfig = {
       tooltip: '果园的新域名官方网站',
       statusPageLink: 'https://guoyuangzs.dpdns.org',
       expectedCodes: [200], // 仅检查状态码
+      responseKeyword: undefined,
+      responseForbiddenKeyword: undefined
       timeout: 10000,
       headers: { 'User-Agent': 'Uptimeflare' }
     },
