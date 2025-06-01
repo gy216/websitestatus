@@ -3,9 +3,9 @@ import { MaintenanceConfig, PageConfig, WorkerConfig } from './types/config'
 const pageConfig: PageConfig = {
   title: "果园服务状态监控",
   links: [
-    { link: 'https://github.com/lyc8503', label: 'GitHub' },
-    { link: 'https://blog.lyc8503.net/', label: '博客' },
-    { link: 'mailto:me@lyc8503.net', label: '联系我', highlight: true },
+    { link: 'https://github.com/gy216', label: 'GitHub' },
+    { link: 'https://guoyuangzs.dpdns.org/', label: 'Back to Index website' },
+    { link: 'https://guoyuangzs.dpdns.org/', label: '联系我', highlight: true },
   ],
   group: {
     '🌐 所有监控': [
