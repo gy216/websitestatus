@@ -28,15 +28,15 @@ const workerConfig: WorkerConfig = {
     // Example HTTP Monitor
     {
       // `id` should be unique, history will be kept if the `id` remains constant
-      id: 'foo_monitor',
+      id: 'website',
       // `name` is used at status page and callback message
-      name: 'My API Monitor',
+      name: 'My Website',
       // `method` should be a valid HTTP Method
       method: 'POST',
       // `target` is a valid URL
-      target: 'https://example.com',
+      target: 'https://guoyuangzs.dpdns.org',
       // [OPTIONAL] `tooltip` is ONLY used at status page to show a tooltip
-      tooltip: 'This is a tooltip for this monitor',
+      tooltip: '果园官网',
       // [OPTIONAL] `statusPageLink` is ONLY used for clickable link at status page
       statusPageLink: 'https://example.com',
       // [OPTIONAL] `hideLatencyChart` will hide status page latency chart if set to true
@@ -48,12 +48,12 @@ const workerConfig: WorkerConfig = {
       // [OPTIONAL] headers to be sent
       headers: {
         'User-Agent': 'Uptimeflare',
-        Authorization: 'Bearer YOUR_TOKEN_HERE',
+        // 这一行可以注释掉，用于API验证 Authorization: 'Bearer YOUR_TOKEN_HERE',
       },
       // [OPTIONAL] body to be sent
-      body: 'Hello, world!',
+     // 这行可以注释掉，用于API body: 'Hello, world!',
       // [OPTIONAL] if specified, the response must contains the keyword to be considered as operational.
-      responseKeyword: 'success',
+      // 这行可以注释掉，用于API responseKeyword: 'success',
       // [OPTIONAL] if specified, the response must NOT contains the keyword to be considered as operational.
       responseForbiddenKeyword: 'bad gateway',
       // [OPTIONAL] if specified, will call the check proxy to check the monitor, mainly for geo-specific checks
@@ -65,14 +65,14 @@ const workerConfig: WorkerConfig = {
     },
     // Example TCP Monitor
     {
-      id: 'test_tcp_monitor',
-      name: 'Example TCP Monitor',
+      id: 'tcp',
+      name: 'Dpdns',
       // `method` should be `TCP_PING` for tcp monitors
       method: 'TCP_PING',
       // `target` should be `host:port` for tcp monitors
-      target: '1.2.3.4:22',
-      tooltip: 'My production server SSH',
-      statusPageLink: 'https://example.com',
+      target: 'xx.xx.xx.xx:443',
+      tooltip: '果园编程网站',
+      statusPageLink: 'https://guoyuangzs.dpdns.org',
       timeout: 5000,
     },
   ],
