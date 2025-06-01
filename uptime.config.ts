@@ -7,29 +7,21 @@ const pageConfig: PageConfig = {
     { link: 'https://blog.lyc8503.net/', label: '博客' },
     { link: 'mailto:me@lyc8503.net', label: '联系我', highlight: true },
   ],
-  // 按地理位置分组
+  // 单节点监控，不进行分组
   group: {
-    '🌏 新加坡节点': [
-      'orchard_website_sg', 
-      'orchard_tv_sg', 
-      'orchard_sub_sg', 
-      'ai_server_sg', 
-      'bing_wallpaper_sg', 
-      'status_sg', 
-      'cloudflare_sg', 
-      'cat_sg', 
-      'github_pages_sg'
-    ],
-    '🇭🇰 香港节点': [
-      'orchard_website_hk', 
-      'orchard_tv_hk', 
-      'orchard_sub_hk', 
-      'ai_server_hk', 
-      'bing_wallpaper_hk', 
-      'status_hk', 
-      'cloudflare_hk', 
-      'cat_hk', 
-      'github_pages_hk'
+    '🌐 所有监控': [
+      'orchard_website',
+      'orchard_tv',
+      'orchard_sub',
+      'orchard_tv_gzw',
+      'ai_server',
+      'bing_wallpaper',
+      'status',
+      'cloudflare',
+      'github',
+      'github_pages',
+      'github_actions',
+      'deepseek'
     ]
   }
 }
@@ -37,221 +29,146 @@ const pageConfig: PageConfig = {
 const workerConfig: WorkerConfig = {
   kvWriteCooldownMinutes: 3,
   monitors: [
-    // 新加坡节点监控配置
-    // 果园官网 - 新加坡
+    // 果园官网
     {
-      id: 'orchard_website_sg',
-      name: '果园官网 (新加坡)',
+      id: 'orchard_website',
+      name: '果园官网',
       method: 'GET',
       target: 'https://guoyuangzs.dpdns.org',
-      tooltip: '果园的新域名官方网站 - 新加坡节点',
+      tooltip: '果园的新域名官方网站',
       statusPageLink: 'https://guoyuangzs.dpdns.org',
       expectedCodes: [200],
       timeout: 10000,
       headers: { 'User-Agent': 'Uptimeflare' }
     },
-    // 果园影视站 - 新加坡
+    // 果园影视站
     {
-      id: 'orchard_tv_sg',
-      name: '果园影视 (新加坡)',
+      id: 'orchard_tv',
+      name: '果园影视',
       method: 'GET',
       target: 'https://tv.guoyuangzs.dpdns.org',
-      tooltip: '小黄云部署的影视网站 - 新加坡节点',
+      tooltip: '小黄云部署的影视网站',
       statusPageLink: 'https://tv.guoyuangzs.dpdns.org',
       expectedCodes: [200],
       timeout: 15000,
       headers: { 'User-Agent': 'Uptimeflare' }
     },
-    // 果园副网站 - 新加坡
+    // 果园副网站
     {
-      id: 'orchard_sub_sg',
-      name: '果园副站 (新加坡)',
+      id: 'orchard_sub',
+      name: '果园副站',
       method: 'GET',
       target: 'https://guoyuancode.dpdns.org',
-      tooltip: 'GZW副站 - 新加坡节点',
+      tooltip: 'GZW副站',
       statusPageLink: 'https://guoyuancode.dpdns.org',
       expectedCodes: [200],
       timeout: 10000,
       headers: { 'User-Agent': 'Uptimeflare' }
     },
-    // AI服务器状态 - 新加坡
+    // GZW的影视站
     {
-      id: 'ai_server_sg',
-      name: 'AI服务器状态 (新加坡)',
+      id: 'orchard_tv_gzw',
+      name: 'GZW影视站',
       method: 'GET',
-      target: 'https://openrouter.ai/',
-      tooltip: 'Openroute服务器状态 - 新加坡节点',
-      statusPageLink: 'https://openrouter.ai/',
-      expectedCodes: [200],
-      timeout: 10000,
-      headers: { 'User-Agent': 'Uptimeflare' }
-    },
-    // Bing壁纸服务器状态 - 新加坡
-    {
-      id: 'bing_wallpaper_sg',
-      name: 'Bing壁纸服务器状态 (新加坡)',
-      method: 'GET',
-      target: 'https://bing.ee123.net/img/rand',
-      tooltip: '第三方壁纸服务器状态 - 新加坡节点',
-      statusPageLink: 'https://bing.ee123.net/img/rand',
-      expectedCodes: [200],
-      timeout: 10000,
-      headers: { 'User-Agent': 'Uptimeflare' }
-    },
-    // 状态检查站状态 - 新加坡
-    {
-      id: 'status_sg',
-      name: '状态检查站状态 (新加坡)',
-      method: 'GET',
-      target: 'https://status.guoyuangzs.dpdns.org/',
-      tooltip: '本网站的服务器运行状态 - 新加坡节点',
-      statusPageLink: 'https://status.guoyuangzs.dpdns.org/',
-      expectedCodes: [200],
-      timeout: 10000,
-      headers: { 'User-Agent': 'Uptimeflare' }
-    },
-    // 小黄云状态 - 新加坡
-    {
-      id: 'cloudflare_sg',
-      name: '小黄云状态 (新加坡)',
-      method: 'GET',
-      target: 'https://www.cloudflare.com',
-      tooltip: 'Cloudflare全球服务状态 - 新加坡节点',
-      statusPageLink: 'https://www.cloudflare.com',
-      expectedCodes: [200],
-      timeout: 10000,
-      headers: { 'User-Agent': 'Uptimeflare' }
-    },
-    // 小猫状态 - 新加坡
-    {
-      id: 'cat_sg',
-      name: '小猫服务 (新加坡)',
-      method: 'GET',
-      target: 'https://github.com',
-      tooltip: '小猫服务 - 新加坡节点',
-      statusPageLink: 'https://github.com',
-      expectedCodes: [200],
-      timeout: 10000,
-      headers: { 'User-Agent': 'Uptimeflare' }
-    },
-    // GitHub pages状态 - 新加坡
-    {
-      id: 'github_pages_sg',
-      name: 'GitHub pages状态 (新加坡)',
-      method: 'GET',
-      target: 'https://github.io',
-      tooltip: 'GitHub pages服务器 - 新加坡节点',
-      statusPageLink: 'https://github.io',
-      expectedCodes: [200],
-      timeout: 10000,
-      headers: { 'User-Agent': 'Uptimeflare' }
-    },
-
-    // 香港节点监控配置
-    // 果园官网 - 香港
-    {
-      id: 'orchard_website_hk',
-      name: '果园官网 (香港)',
-      method: 'GET',
-      target: 'https://guoyuangzs.dpdns.org',
-      tooltip: '果园的新域名官方网站 - 香港节点',
-      statusPageLink: 'https://guoyuangzs.dpdns.org',
-      expectedCodes: [200],
-      timeout: 10000,
-      headers: { 'User-Agent': 'Uptimeflare' }
-    },
-    // 果园影视站 - 香港
-    {
-      id: 'orchard_tv_hk',
-      name: '果园影视 (香港)',
-      method: 'GET',
-      target: 'https://tv.guoyuangzs.dpdns.org',
-      tooltip: '小黄云部署的影视网站 - 香港节点',
-      statusPageLink: 'https://tv.guoyuangzs.dpdns.org',
+      target: 'https://tv.guoyuancode.dpdns.org',
+      tooltip: 'GZW用小黄云部署的影视网站',
+      statusPageLink: 'https://tv.guoyuancode.dpdns.org',
       expectedCodes: [200],
       timeout: 15000,
       headers: { 'User-Agent': 'Uptimeflare' }
     },
-    // 果园副网站 - 香港
+    // AI服务器状态
     {
-      id: 'orchard_sub_hk',
-      name: '果园副站 (香港)',
-      method: 'GET',
-      target: 'https://guoyuancode.dpdns.org',
-      tooltip: 'GZW副站 - 香港节点',
-      statusPageLink: 'https://guoyuancode.dpdns.org',
-      expectedCodes: [200],
-      timeout: 10000,
-      headers: { 'User-Agent': 'Uptimeflare' }
-    },
-    // AI服务器状态 - 香港
-    {
-      id: 'ai_server_hk',
-      name: 'AI服务器状态 (香港)',
+      id: 'ai_server',
+      name: 'AI服务器状态',
       method: 'GET',
       target: 'https://openrouter.ai/',
-      tooltip: 'Openroute服务器状态 - 香港节点',
+      tooltip: 'Openroute服务器状态',
       statusPageLink: 'https://openrouter.ai/',
       expectedCodes: [200],
       timeout: 10000,
       headers: { 'User-Agent': 'Uptimeflare' }
     },
-    // Bing壁纸服务器状态 - 香港
+    // Bing壁纸服务器状态
     {
-      id: 'bing_wallpaper_hk',
-      name: 'Bing壁纸服务器状态 (香港)',
+      id: 'bing_wallpaper',
+      name: 'Bing壁纸服务器状态',
       method: 'GET',
       target: 'https://bing.ee123.net/img/rand',
-      tooltip: '第三方壁纸服务器状态 - 香港节点',
+      tooltip: '第三方壁纸服务器状态',
       statusPageLink: 'https://bing.ee123.net/img/rand',
       expectedCodes: [200],
       timeout: 10000,
       headers: { 'User-Agent': 'Uptimeflare' }
     },
-    // 状态检查站状态 - 香港
+    // 状态检查站状态
     {
-      id: 'status_hk',
-      name: '状态检查站状态 (香港)',
+      id: 'status',
+      name: '状态检查站状态',
       method: 'GET',
       target: 'https://status.guoyuangzs.dpdns.org/',
-      tooltip: '本网站的服务器运行状态 - 香港节点',
+      tooltip: '本网站的服务器运行状态',
       statusPageLink: 'https://status.guoyuangzs.dpdns.org/',
       expectedCodes: [200],
       timeout: 10000,
       headers: { 'User-Agent': 'Uptimeflare' }
     },
-    // 小黄云状态 - 香港
+    // 小黄云状态
     {
-      id: 'cloudflare_hk',
-      name: '小黄云状态 (香港)',
+      id: 'cloudflare',
+      name: '小黄云状态',
       method: 'GET',
       target: 'https://www.cloudflare.com',
-      tooltip: 'Cloudflare全球服务状态 - 香港节点',
+      tooltip: 'Cloudflare全球服务状态',
       statusPageLink: 'https://www.cloudflare.com',
       expectedCodes: [200],
       timeout: 10000,
       headers: { 'User-Agent': 'Uptimeflare' }
     },
-    // 小猫状态 - 香港
+    // Github状态
     {
-      id: 'cat_hk',
-      name: '小猫服务 (香港)',
+      id: 'github',
+      name: 'Github状态',
       method: 'GET',
       target: 'https://github.com',
-      tooltip: '小猫服务 - 香港节点',
+      tooltip: '小猫服务',
       statusPageLink: 'https://github.com',
       expectedCodes: [200],
       timeout: 10000,
       headers: { 'User-Agent': 'Uptimeflare' }
     },
-    // GitHub pages状态 - 香港
+    // GitHub pages状态
     {
-      id: 'github_pages_hk',
-      name: 'GitHub pages状态 (香港)',
+      id: 'github_pages',
+      name: 'GitHub pages状态',
       method: 'GET',
       target: 'https://github.io',
-      tooltip: 'GitHub pages服务器 - 香港节点',
+      tooltip: 'GitHub pages服务器-网站源服务器',
       statusPageLink: 'https://github.io',
+      expectedCodes: [200],
+      timeout: 10000,
+      headers: { 'User-Agent': 'Uptimeflare' }
+    },
+    // 状态检查站源actions服务状态
+    {
+      id: 'github_actions',
+      name: '状态检查站源actions服务状态',
+      method: 'GET',
+      target: 'https://github.com/gy216/websitestatus',
+      tooltip: 'GitHub websitestatus actions服务器',
+      statusPageLink: 'https://github.com/gy216/websitestatus',
+      expectedCodes: [200],
+      timeout: 10000,
+      headers: { 'User-Agent': 'Uptimeflare' }
+    },
+    // Deepseek状态
+    {
+      id: 'deepseek',
+      name: 'Deepseek状态',
+      method: 'GET',
+      target: 'https://chat.deepseek.com/',
+      tooltip: 'Deepseek服务器状态',
+      statusPageLink: 'https://chat.deepseek.com/',
       expectedCodes: [200],
       timeout: 10000,
       headers: { 'User-Agent': 'Uptimeflare' }
@@ -276,7 +193,7 @@ const workerConfig: WorkerConfig = {
 // 维护计划配置（示例）
 const maintenances: MaintenanceConfig[] = [
   // {
-  //   monitors: ['orchard_website_sg'],
+  //   monitors: ['orchard_website'],
   //   title: '官网维护',
   //   body: '服务器升级维护',
   //   start: '2024-06-01T00:00:00+08:00',
