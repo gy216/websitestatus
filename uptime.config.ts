@@ -7,7 +7,6 @@ const pageConfig: PageConfig = {
     { link: 'https://blog.lyc8503.net/', label: '博客' },
     { link: 'mailto:me@lyc8503.net', label: '联系我', highlight: true },
   ],
-  // 单节点监控，不进行分组
   group: {
     '🌐 所有监控': [
       'orchard_website',
@@ -20,8 +19,7 @@ const pageConfig: PageConfig = {
       'cloudflare',
       'github',
       'github_pages',
-      'github_actions',
-      'deepseek'
+      'github_actions'
     ]
   }
 }
@@ -37,7 +35,7 @@ const workerConfig: WorkerConfig = {
       target: 'https://guoyuangzs.dpdns.org',
       tooltip: '果园的新域名官方网站',
       statusPageLink: 'https://guoyuangzs.dpdns.org',
-      expectedCodes: [200],
+      expectedCodes: [200], // 仅检查状态码
       timeout: 10000,
       headers: { 'User-Agent': 'Uptimeflare' }
     },
@@ -50,7 +48,7 @@ const workerConfig: WorkerConfig = {
       tooltip: '小黄云部署的影视网站',
       statusPageLink: 'https://tv.guoyuangzs.dpdns.org',
       expectedCodes: [200],
-      timeout: 15000,
+      timeout: 15000, // 视频站可能需要更长时间
       headers: { 'User-Agent': 'Uptimeflare' }
     },
     // 果园副网站
@@ -92,7 +90,7 @@ const workerConfig: WorkerConfig = {
     // Bing壁纸服务器状态
     {
       id: 'bing_wallpaper',
-      name: 'Bing壁纸服务器状态',
+      name: 'Bing壁纸服务器',
       method: 'GET',
       target: 'https://bing.ee123.net/img/rand',
       tooltip: '第三方壁纸服务器状态',
@@ -104,7 +102,7 @@ const workerConfig: WorkerConfig = {
     // 状态检查站状态
     {
       id: 'status',
-      name: '状态检查站状态',
+      name: '状态检查站',
       method: 'GET',
       target: 'https://status.guoyuangzs.dpdns.org/',
       tooltip: '本网站的服务器运行状态',
@@ -140,7 +138,7 @@ const workerConfig: WorkerConfig = {
     // GitHub pages状态
     {
       id: 'github_pages',
-      name: 'GitHub pages状态',
+      name: 'GitHub Pages',
       method: 'GET',
       target: 'https://github.io',
       tooltip: 'GitHub pages服务器-网站源服务器',
@@ -152,7 +150,7 @@ const workerConfig: WorkerConfig = {
     // 状态检查站源actions服务状态
     {
       id: 'github_actions',
-      name: '状态检查站源actions服务状态',
+      name: 'GitHub Actions状态',
       method: 'GET',
       target: 'https://github.com/gy216/websitestatus',
       tooltip: 'GitHub websitestatus actions服务器',
@@ -160,25 +158,10 @@ const workerConfig: WorkerConfig = {
       expectedCodes: [200],
       timeout: 10000,
       headers: { 'User-Agent': 'Uptimeflare' }
-    },
-    // Deepseek状态
-    {
-      id: 'deepseek',
-      name: 'Deepseek状态',
-      method: 'GET',
-      target: 'https://chat.deepseek.com/',
-      tooltip: 'Deepseek服务器状态',
-      statusPageLink: 'https://chat.deepseek.com/',
-      expectedCodes: [200],
-      timeout: 10000,
-      headers: { 'User-Agent': 'Uptimeflare' }
     }
   ],
   notification: {
-    timeZone: 'Asia/Shanghai',
-    // 如需通知请取消以下注释并填写真实信息
-    // appriseApiServer: '你的通知服务器地址',
-    // recipientUrl: '你的通知渠道URL'
+    timeZone: 'Asia/Shanghai'
   },
   callbacks: {
     onStatusChange: async (env, monitor, isUp, timeIncidentStart, timeNow, reason) => {
@@ -192,13 +175,7 @@ const workerConfig: WorkerConfig = {
 
 // 维护计划配置（示例）
 const maintenances: MaintenanceConfig[] = [
-  // {
-  //   monitors: ['orchard_website'],
-  //   title: '官网维护',
-  //   body: '服务器升级维护',
-  //   start: '2024-06-01T00:00:00+08:00',
-  //   end: '2024-06-01T02:00:00+08:00'
-  // }
+  // 可在此添加维护计划
 ]
 
 export { pageConfig, workerConfig, maintenances }
