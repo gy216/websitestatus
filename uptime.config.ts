@@ -7,67 +7,186 @@ const pageConfig: PageConfig = {
     { link: 'https://blog.lyc8503.net/', label: '博客' },
     { link: 'mailto:me@lyc8503.net', label: '联系我', highlight: true },
   ],
-  // 分组配置（按服务类型）
+  // 按地理位置分组
   group: {
-    '🌐 官方网站': ['orchard_website', 'orchard_tv'],
-    '🛡️ 基础设施': ['cloudflare_status']
-  },
+    '🌏 上海节点': ['orchard_website_sh', 'orchard_tv_sh', 'cloudflare_sh', 'cat_sh', 'cdn00_sh', 'cdn01_sh', 'cdn02_sh'],
+    '🇭🇰 香港节点': ['orchard_website_hk', 'orchard_tv_hk', 'cloudflare_hk', 'cat_hk', 'cdn00_hk', 'cdn01_hk', 'cdn02_hk']
+  }
 }
 
 const workerConfig: WorkerConfig = {
   kvWriteCooldownMinutes: 3,
   monitors: [
-    // 果园Dpdns官网监控
+    // 上海节点监控配置
+    // 果园官网 - 上海
     {
-      id: 'orchard_website',
-      name: '果园官网',
+      id: 'orchard_website_sh',
+      name: '果园官网 (上海)',
       method: 'GET',
       target: 'https://guoyuangzs.dpdns.org',
-      tooltip: '果园的新域名官方网站',
+      tooltip: '果园的新域名官方网站 - 上海节点',
       statusPageLink: 'https://guoyuangzs.dpdns.org',
       expectedCodes: [200],
       timeout: 10000,
-      headers: {
-        'User-Agent': 'Uptimeflare'
-      },
-      // 添加关键词检查（可选）
-      responseKeyword: '<title>', // 检查页面是否有标题标签
-      responseForbiddenKeyword: '502 Bad Gateway'
+      headers: { 'User-Agent': 'Uptimeflare' }
     },
-    
-    // 果园影视站监控
+    // 果园影视站 - 上海
     {
-      id: 'orchard_tv',
-      name: '果园影视',
+      id: 'orchard_tv_sh',
+      name: '果园影视 (上海)',
       method: 'GET',
       target: 'https://tv.guoyuangzs.dpdns.org',
-      tooltip: '小黄云部署的影视网站',
+      tooltip: '小黄云部署的影视网站 - 上海节点',
       statusPageLink: 'https://tv.guoyuangzs.dpdns.org',
       expectedCodes: [200],
-      timeout: 15000, // 视频站可能需要更长时间
-      headers: {
-        'User-Agent': 'Uptimeflare'
-      },
-      // 特别检查影视站常见错误
-      responseForbiddenKeyword: '404 Not Found'
+      timeout: 15000,
+      headers: { 'User-Agent': 'Uptimeflare' }
     },
-    
-    // Cloudflare状态监控（简化版）
+    // 小黄云状态 - 上海
     {
-      id: 'cloudflare_status',
-      name: '小黄云状态',
+      id: 'cloudflare_sh',
+      name: '小黄云状态 (上海)',
       method: 'GET',
       target: 'https://www.cloudflare.com',
-      tooltip: 'Cloudflare全球服务状态',
+      tooltip: 'Cloudflare全球服务状态 - 上海节点',
       statusPageLink: 'https://www.cloudflare.com',
       expectedCodes: [200],
       timeout: 10000,
-      headers: {
-        'User-Agent': 'Uptimeflare'
-      },
-      // Cloudflare有特定状态关键词
-      responseKeyword: 'Cloudflare',
-      responseForbiddenKeyword: 'Error'
+      headers: { 'User-Agent': 'Uptimeflare' }
+    },
+    // 小猫状态 - 上海
+    {
+      id: 'cat_sh',
+      name: '小猫服务 (上海)',
+      method: 'GET',
+      target: 'https://github.com',
+      tooltip: '小猫服务 - 上海节点',
+      statusPageLink: 'https://github.com',
+      expectedCodes: [200],
+      timeout: 10000,
+      headers: { 'User-Agent': 'Uptimeflare' }
+    },
+    // CDN00状态 - 上海
+    {
+      id: 'cdn00_sh',
+      name: 'CDN00状态 (上海)',
+      method: 'GET',
+      target: '172.67.148.172',
+      tooltip: '移动电信联通服务 - 上海节点',
+      statusPageLink: '',
+      expectedCodes: [200],
+      timeout: 5000,
+      headers: { 'User-Agent': 'Uptimeflare' }
+    },
+    // CDN01状态 - 上海
+    {
+      id: 'cdn01_sh',
+      name: 'CDN01状态 (上海)',
+      method: 'GET',
+      target: '104.16.160.78',
+      tooltip: '电信联通服务 - 上海节点',
+      statusPageLink: '',
+      expectedCodes: [200],
+      timeout: 5000,
+      headers: { 'User-Agent': 'Uptimeflare' }
+    },
+    // CDN02状态 - 上海
+    {
+      id: 'cdn02_sh',
+      name: 'CDN02状态 (上海)',
+      method: 'GET',
+      target: '104.16.160.91',
+      tooltip: '联通电信服务 - 上海节点',
+      statusPageLink: '',
+      expectedCodes: [200],
+      timeout: 5000,
+      headers: { 'User-Agent': 'Uptimeflare' }
+    },
+
+    // 香港节点监控配置
+    // 果园官网 - 香港
+    {
+      id: 'orchard_website_hk',
+      name: '果园官网 (香港)',
+      method: 'GET',
+      target: 'https://guoyuangzs.dpdns.org',
+      tooltip: '果园的新域名官方网站 - 香港节点',
+      statusPageLink: 'https://guoyuangzs.dpdns.org',
+      expectedCodes: [200],
+      timeout: 10000,
+      headers: { 'User-Agent': 'Uptimeflare' }
+    },
+    // 果园影视站 - 香港
+    {
+      id: 'orchard_tv_hk',
+      name: '果园影视 (香港)',
+      method: 'GET',
+      target: 'https://tv.guoyuangzs.dpdns.org',
+      tooltip: '小黄云部署的影视网站 - 香港节点',
+      statusPageLink: 'https://tv.guoyuangzs.dpdns.org',
+      expectedCodes: [200],
+      timeout: 15000,
+      headers: { 'User-Agent': 'Uptimeflare' }
+    },
+    // 小黄云状态 - 香港
+    {
+      id: 'cloudflare_hk',
+      name: '小黄云状态 (香港)',
+      method: 'GET',
+      target: 'https://www.cloudflare.com',
+      tooltip: 'Cloudflare全球服务状态 - 香港节点',
+      statusPageLink: 'https://www.cloudflare.com',
+      expectedCodes: [200],
+      timeout: 10000,
+      headers: { 'User-Agent': 'Uptimeflare' }
+    },
+    // 小猫状态 - 香港
+    {
+      id: 'cat_hk',
+      name: '小猫服务 (香港)',
+      method: 'GET',
+      target: 'https://github.com',
+      tooltip: '小猫服务 - 香港节点',
+      statusPageLink: 'https://github.com',
+      expectedCodes: [200],
+      timeout: 10000,
+      headers: { 'User-Agent': 'Uptimeflare' }
+    },
+    // CDN00状态 - 香港
+    {
+      id: 'cdn00_hk',
+      name: 'CDN00状态 (香港)',
+      method: 'GET',
+      target: '172.67.148.172',
+      tooltip: '移动电信联通服务 - 香港节点',
+      statusPageLink: '',
+      expectedCodes: [200],
+      timeout: 5000,
+      headers: { 'User-Agent': 'Uptimeflare' }
+    },
+    // CDN01状态 - 香港
+    {
+      id: 'cdn01_hk',
+      name: 'CDN01状态 (香港)',
+      method: 'GET',
+      target: '104.16.160.78',
+      tooltip: '电信联通服务 - 香港节点',
+      statusPageLink: '',
+      expectedCodes: [200],
+      timeout: 5000,
+      headers: { 'User-Agent': 'Uptimeflare' }
+    },
+    // CDN02状态 - 香港
+    {
+      id: 'cdn02_hk',
+      name: 'CDN02状态 (香港)',
+      method: 'GET',
+      target: '104.16.160.91',
+      tooltip: '联通电信服务 - 香港节点',
+      statusPageLink: '',
+      expectedCodes: [200],
+      timeout: 5000,
+      headers: { 'User-Agent': 'Uptimeflare' }
     }
   ],
   notification: {
@@ -89,7 +208,7 @@ const workerConfig: WorkerConfig = {
 // 维护计划配置（示例）
 const maintenances: MaintenanceConfig[] = [
   // {
-  //   monitors: ['orchard_website'],
+  //   monitors: ['orchard_website_sh'],
   //   title: '官网维护',
   //   body: '服务器升级维护',
   //   start: '2024-06-01T00:00:00+08:00',
