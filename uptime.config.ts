@@ -82,9 +82,9 @@ const workerConfig: WorkerConfig = {
       id: 'orchard_duckduckgo',
       name: '镜像Duckduckgo',
       method: 'GET',
-      target: 'https://duckduckgo.guoyuanbc.dpdns.org',
+      target: 'https://duckduckgo.guoyuangzs.dpdns.org',
       tooltip: '果园用小黄云部署的镜像Duckduckgo',
-      statusPageLink: 'https://duckduckgo.guoyuanbc.dpdns.org',
+      statusPageLink: 'https://duckduckgo.guoyuangzs.dpdns.org',
       expectedCodes: [200],
       timeout: 15000,
       headers: { 'User-Agent': 'Uptimeflare' }
@@ -94,9 +94,9 @@ const workerConfig: WorkerConfig = {
       id: 'orchard_pypi',
       name: '镜像Pypi',
       method: 'GET',
-      target: 'https://pypi.guoyuanbc.dpdns.org',
+      target: 'https://pypi.guoyuangzs.dpdns.org',
       tooltip: '果园用小黄云部署的镜像pypi',
-      statusPageLink: 'https://pypi.guoyuanbc.dpdns.org',
+      statusPageLink: 'https://pypi.guoyuangzs.dpdns.org',
       expectedCodes: [200],
       timeout: 15000,
       headers: { 'User-Agent': 'Uptimeflare' }
