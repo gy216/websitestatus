@@ -77,30 +77,6 @@ const workerConfig: WorkerConfig = {
       timeout: 15000,
       headers: { 'User-Agent': 'Uptimeflare' }
     },
-    // 镜像Duckduckgo
-    {
-      id: 'orchard_duckduckgo',
-      name: '镜像Duckduckgo',
-      method: 'GET',
-      target: 'https://duckduckgo.guoyuangzs.dpdns.org',
-      tooltip: '果园用小黄云部署的镜像Duckduckgo',
-      statusPageLink: 'https://duckduckgo.guoyuangzs.dpdns.org',
-      expectedCodes: [200],
-      timeout: 15000,
-      headers: { 'User-Agent': 'Uptimeflare' }
-    },
-    // 镜像Pypi
-    {
-      id: 'orchard_pypi',
-      name: '镜像Pypi',
-      method: 'GET',
-      target: 'https://pypi.guoyuangzs.dpdns.org',
-      tooltip: '果园用小黄云部署的镜像pypi',
-      statusPageLink: 'https://pypi.guoyuangzs.dpdns.org',
-      expectedCodes: [200],
-      timeout: 15000,
-      headers: { 'User-Agent': 'Uptimeflare' }
-    },
     // AI服务器状态
     {
       id: 'ai_server',
