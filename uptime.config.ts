@@ -13,6 +13,8 @@ const pageConfig: PageConfig = {
       'orchard_tv',
       'orchard_sub',
       'orchard_tv_gzw',
+      'orchard_duckduckgo',
+      'orchard_pypi',
       'ai_server',
       'bing_wallpaper',
       'status',
@@ -71,6 +73,30 @@ const workerConfig: WorkerConfig = {
       target: 'https://tv.guoyuancode.dpdns.org',
       tooltip: 'GZW用小黄云部署的影视网站',
       statusPageLink: 'https://tv.guoyuancode.dpdns.org',
+      expectedCodes: [200],
+      timeout: 15000,
+      headers: { 'User-Agent': 'Uptimeflare' }
+    },
+    // 镜像Duckduckgo
+    {
+      id: 'orchard_duckduckgo',
+      name: '镜像Duckduckgo',
+      method: 'GET',
+      target: 'https://duckduckgo.guoyuanbc.dpdns.org',
+      tooltip: '果园用小黄云部署的镜像Duckduckgo',
+      statusPageLink: 'https://duckduckgo.guoyuanbc.dpdns.org',
+      expectedCodes: [200],
+      timeout: 15000,
+      headers: { 'User-Agent': 'Uptimeflare' }
+    },
+    // 镜像Pypi
+    {
+      id: 'orchard_pypi',
+      name: '镜像Pypi',
+      method: 'GET',
+      target: 'https://pypi.guoyuanbc.dpdns.org',
+      tooltip: '果园用小黄云部署的镜像pypi',
+      statusPageLink: 'https://pypi.guoyuanbc.dpdns.org',
       expectedCodes: [200],
       timeout: 15000,
       headers: { 'User-Agent': 'Uptimeflare' }
