@@ -8,20 +8,20 @@ const pageConfig: PageConfig = {
     { link: 'https://guoyuangzs.dpdns.org/', label: '联系我', highlight: true },
   ],
   group: {
-    '🏠 果园官方服务': [
+    '果园官方服务': [
       'orchard_website',
       'orchard_tv',
       'status'
     ],
-    '🌱 副站相关服务': [
+    '副站相关服务': [
       'orchard_sub',
       'orchard_tv_gzw'
     ],
-    '🪞 镜像服务': [
+    '镜像服务': [
       'orchard_duckduckgo',
       'orchard_pypi'
     ],
-    '☁️ 外部依赖服务': [
+    '外部依赖服务': [
       'ai_server',
       'bing_wallpaper',
       'cloudflare',
@@ -29,7 +29,7 @@ const pageConfig: PageConfig = {
       'github_pages',
       'github_actions'
     ],
-    '🌐 所有监控': [ // 保留原有全部分组
+    '所有监控': [ // 保留原有全部分组
       'orchard_website',
       'orchard_tv',
       'orchard_sub',
