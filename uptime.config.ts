@@ -11,7 +11,8 @@ const pageConfig: PageConfig = {
     '果园官方服务': [
       'orchard_website',
       'orchard_tv',
-      'status'
+      'status',
+      'orchard_mc'  // 新增的MC服务器监控项
     ],
     '副站相关服务': [
       'orchard_sub',
@@ -29,7 +30,7 @@ const pageConfig: PageConfig = {
       'github_pages',
       'github_actions'
     ],
-    '所有监控': [ // 保留原有全部分组
+    '所有监控': [
       'orchard_website',
       'orchard_tv',
       'orchard_sub',
@@ -42,12 +43,12 @@ const pageConfig: PageConfig = {
       'cloudflare',
       'github',
       'github_pages',
-      'github_actions'
+      'github_actions',
+      'orchard_mc'  // 在全部监控中也添加
     ]
   }
 }
 
-// workerConfig 保持原样（仅分组逻辑变化，监控项不变）
 const workerConfig: WorkerConfig = {
   kvWriteCooldownMinutes: 3,
   monitors: [
@@ -84,6 +85,15 @@ const workerConfig: WorkerConfig = {
       expectedCodes: [200],
       timeout: 10000,
       headers: { 'User-Agent': 'Uptimeflare' }
+    },
+    {
+      id: 'orchard_mc',
+      name: '果园MC服务器',
+      method: 'TCP_PING',
+      target: 'play.simpfun.cn:28943',
+      tooltip: '果园编程MC服务器',
+      statusPageLink: 'http://play.simpfun.cn:28943/',
+      timeout: 10000
     },
 
     /* 副站相关服务 */
@@ -183,7 +193,7 @@ const workerConfig: WorkerConfig = {
       id: 'github_pages',
       name: 'GitHub Pages',
       method: 'GET',
-      target: 'https://gy216.github.io', // 修正地址
+      target: 'https://gy216.github.io',
       tooltip: 'GitHub pages服务器-网站源服务器',
       statusPageLink: 'https://gy216.github.io',
       expectedCodes: [200],
