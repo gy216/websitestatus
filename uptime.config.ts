@@ -86,15 +86,17 @@ const workerConfig: WorkerConfig = {
       timeout: 10000,
       headers: { 'User-Agent': 'Uptimeflare' }
     },
-    {
-      id: 'orchard_mc',
-      name: '果园MC服务器',
-      method: 'TCP_PING',
-      target: 'play.simpfun.cn:28943',
-      tooltip: '果园编程MC服务器',
-      statusPageLink: 'http://play.simpfun.cn:28943/',
-      timeout: 10000
-    },
+    
+	{
+	id: 'orchard_mc',
+	name: '果园MC服务器',
+	method: 'GET',
+	target: 'http://play.simpfun.cn:28943',
+	tooltip: '果园编程MC服务器',
+	statusPageLink: 'http://play.simpfun.cn:28943/',
+	timeout: 10000,
+	headers: { 'User-Agent': 'Uptimeflare' }
+	},
 
     /* 副站相关服务 */
     {
