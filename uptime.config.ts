@@ -88,24 +88,26 @@ const workerConfig: WorkerConfig = {
     },
     
 	{
-	id: 'orchard_mc',
-	name: '果园MC服务器',
-	method: 'GET',
-	target: 'http://play.simpfun.cn:28943',
-	tooltip: '果园编程MC服务器',
-	statusPageLink: 'http://play.simpfun.cn:28943/',
-	timeout: 10000,
-	headers: { 'User-Agent': 'Uptimeflare' }
-	},
+  id: 'orchard_mc',
+  name: '果园MC服务器',
+  method: 'GET',
+  target: 'http://play.simpfun.cn:28943',
+  tooltip: '果园编程MC服务器',
+  statusPageLink: 'http://play.simpfun.cn:28943/',
+  expectedCodes: [], // 空数组表示接受任何响应（包括非200状态码）
+  allowIncompleteResponse: true, // 允许不完整的响应（如连接建立即可）
+  timeout: 10000,
+  headers: { 'User-Agent': 'Uptimeflare' }
+}
 
     /* 副站相关服务 */
     {
       id: 'orchard_sub',
       name: '果园副站',
       method: 'GET',
-      target: 'https://guoyuancode.dpdns.org',
+      target: 'https://gystu.top',
       tooltip: 'GZW副站',
-      statusPageLink: 'https://guoyuancode.dpdns.org',
+      statusPageLink: 'https://gystu.top',
       expectedCodes: [200],
       timeout: 10000,
       headers: { 'User-Agent': 'Uptimeflare' }
@@ -114,9 +116,9 @@ const workerConfig: WorkerConfig = {
       id: 'orchard_tv_gzw',
       name: 'GZW影视站',
       method: 'GET',
-      target: 'https://tv.guoyuancode.dpdns.org',
+      target: 'https://tv.gystu.top',
       tooltip: 'GZW用小黄云部署的影视网站',
-      statusPageLink: 'https://tv.guoyuancode.dpdns.org',
+      statusPageLink: 'https://tv.gystu.top',
       expectedCodes: [200],
       timeout: 15000,
       headers: { 'User-Agent': 'Uptimeflare' }
