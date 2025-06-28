@@ -12,7 +12,7 @@ const pageConfig: PageConfig = {
       'orchard_website',
       'orchard_tv',
       'status',
-      'orchard_mc'  // 新增的MC服务器监控项
+      'orchard_mc'
     ],
     '副站相关服务': [
       'orchard_sub',
@@ -44,7 +44,7 @@ const pageConfig: PageConfig = {
       'github',
       'github_pages',
       'github_actions',
-      'orchard_mc'  // 在全部监控中也添加
+      'orchard_mc'
     ]
   }
 }
@@ -86,21 +86,20 @@ const workerConfig: WorkerConfig = {
       timeout: 10000,
       headers: { 'User-Agent': 'Uptimeflare' }
     },
-    
-	{
-  id: 'orchard_mc',
-  name: '果园MC服务器',
-  method: 'GET',
-  target: 'http://play.simpfun.cn:28943',
-  tooltip: '果园编程MC服务器',
-  statusPageLink: 'http://play.simpfun.cn:28943/',
-  expectedCodes: [], // 空数组表示接受任何响应（包括非200状态码）
-  allowIncompleteResponse: true, // 允许不完整的响应（如连接建立即可）
-  timeout: 10000,
-  headers: { 'User-Agent': 'Uptimeflare' }
-}
+    {
+      id: 'orchard_mc',
+      name: '果园MC服务器',
+      method: 'GET',
+      target: 'http://play.simpfun.cn:28943',
+      tooltip: '果园编程MC服务器',
+      statusPageLink: 'http://play.simpfun.cn:28943/',
+      expectedCodes: [],
+      allowIncompleteResponse: true,
+      timeout: 10000,
+      headers: { 'User-Agent': 'Uptimeflare' }
+    },
 
-    /* 副站相关服务 */
+    /* 副站相关服务（已更新域名） */
     {
       id: 'orchard_sub',
       name: '果园副站',
