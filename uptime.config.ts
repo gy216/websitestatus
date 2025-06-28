@@ -96,7 +96,7 @@ const workerConfig: WorkerConfig = {
 	expectedCodes: [200], // 添加此项以满足类型要求
 	timeout: 10000,
 	headers: { 'User-Agent': 'Uptimeflare' }
-}
+},
 
     /* 副站相关服务 */
     {
