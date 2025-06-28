@@ -93,13 +93,12 @@ const workerConfig: WorkerConfig = {
       target: 'http://play.simpfun.cn:28943',
       tooltip: '果园编程MC服务器',
       statusPageLink: 'http://play.simpfun.cn:28943/',
-      expectedCodes: [],
-      allowIncompleteResponse: true,
+      allowIncompleteResponse: true, // 关键修复：移除 expectedCodes，仅保留此属性
       timeout: 10000,
       headers: { 'User-Agent': 'Uptimeflare' }
     },
 
-    /* 副站相关服务（已更新域名） */
+    /* 副站相关服务 */
     {
       id: 'orchard_sub',
       name: '果园副站',
