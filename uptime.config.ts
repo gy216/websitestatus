@@ -87,16 +87,16 @@ const workerConfig: WorkerConfig = {
       headers: { 'User-Agent': 'Uptimeflare' }
     },
     {
-      id: 'orchard_mc',
-      name: '果园MC服务器',
-      method: 'GET',
-      target: 'http://play.simpfun.cn:28943',
-      tooltip: '果园编程MC服务器',
-      statusPageLink: 'http://play.simpfun.cn:28943/',
-      allowIncompleteResponse: true, // 关键修复：移除 expectedCodes，仅保留此属性
-      timeout: 10000,
-      headers: { 'User-Agent': 'Uptimeflare' }
-    },
+	id: 'orchard_mc',
+	name: '果园MC服务器',
+	method: 'GET',
+	target: 'http://play.simpfun.cn:28943',
+	tooltip: '果园编程MC服务器',
+	statusPageLink: 'http://play.simpfun.cn:28943/',
+	expectedCodes: [200], // 添加此项以满足类型要求
+	timeout: 10000,
+	headers: { 'User-Agent': 'Uptimeflare' }
+}
 
     /* 副站相关服务 */
     {
