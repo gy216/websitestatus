@@ -12,7 +12,6 @@ const pageConfig: PageConfig = {
       'orchard_website',
       'orchard_tv',
       'status',
-      'orchard_mc'
     ],
     '副站相关服务': [
       'orchard_sub',
@@ -44,7 +43,6 @@ const pageConfig: PageConfig = {
       'github',
       'github_pages',
       'github_actions',
-      'orchard_mc'
     ]
   }
 }
@@ -86,17 +84,6 @@ const workerConfig: WorkerConfig = {
       timeout: 10000,
       headers: { 'User-Agent': 'Uptimeflare' }
     },
-    {
-	id: 'orchard_mc',
-	name: '果园MC服务器',
-	method: 'GET',
-	target: 'http://play.simpfun.cn:28943',
-	tooltip: '果园编程MC服务器',
-	statusPageLink: 'http://play.simpfun.cn:28943/',
-	expectedCodes: [200], // 添加此项以满足类型要求
-	timeout: 10000,
-	headers: { 'User-Agent': 'Uptimeflare' }
-},
 
     /* 副站相关服务 */
     {
